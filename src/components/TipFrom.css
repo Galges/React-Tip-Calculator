@@ -25,6 +25,7 @@ label, .select-tip {
 	padding: 8px;
 	text-align: right;
     font-weight: 700;
+    font-size: 18px;
 	background-color: #F3F8FB;
 	background-position: left;
     background-position-x: 10px;
@@ -32,6 +33,12 @@ label, .select-tip {
     color: #265253;
 	border: none;
 	border-radius: 5px;
+    outline: none; 
+    transition: border-color 0.3s; 
+}
+.cash-icon:focus,
+.input-people:focus {
+    border: 2px solid #26C2AD; 
 }
 .cash-icon{
 	background-image: url('../images/icon-dollar.svg');   
@@ -64,7 +71,7 @@ label, .select-tip {
 .custom-tip {
     width: 100%;
 	height: 80%;
-    margin: 8px 0;
+    margin: 8px 5px 8px 0;
 	text-align: right;
     font-size: 16px;
 	font-weight: 700;
@@ -72,9 +79,14 @@ label, .select-tip {
     color:#265253;
 	border: none;
     border-radius: 8px;
+    outline: none; 
+    transition: border-color 0.3s; 
+} 
+.custom-tip:focus {
+    border: 2px solid #26C2AD; 
 }
 .custom-tip::placeholder {
-    margin-left: 10px;
+    margin-left: 5px;
     font-size: 18px;
     color:#265253;
     
