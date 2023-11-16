@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-function TipCalculator({ price, tip, people, custom, setResetCalculator}) {
+function TipCalculator({ price, tip, people, setResetCalculator}) {
   const [tipAmount, setTipAmount] = useState('');
   const [total, setTotal] = useState('');
 
@@ -18,7 +18,7 @@ function TipCalculator({ price, tip, people, custom, setResetCalculator}) {
               setTotal(calculatedTotal.toFixed(2));
             }
         }
-    }, [price, tip, people, custom]);
+    }, [price, tip, people, ]);
     
     useEffect(() => {
       setResetCalculator(() => resetCalculator);

@@ -64,7 +64,7 @@ function TipForm() {
         ></input>
       </div>
 	  <div className='partTwo'>
-      <TipCalculator price={price} tip={tip} people={people} custom={custom} setResetCalculator={setResetCalculator}  />
+      <TipCalculator price={price} tip={tip} people={people} setResetCalculator={setResetCalculator}  />
       
       <div className='btn-reset'>
         <button onClick={resetBtn} className='reset'>
