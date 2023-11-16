@@ -183,6 +183,7 @@ label, .select-tip {
     }
     .amount {
         font-size: 32px;
+        width: 110px;
     }
     .btn-reset {
         margin-top: 120px;
