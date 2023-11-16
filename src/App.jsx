@@ -1,12 +1,15 @@
 import Header from "./components/Header";
-import TipForm from './components/TipForm'
 
+import TipForm from './components/TipForm'
 function App() {
   return (
    <>
    <Header />
    <TipForm/>
-   </>   
+   </>
+      
+      
+      
   );
 }
 
