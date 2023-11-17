@@ -4,17 +4,22 @@ import TipCalculator from './TipCalculator'
 import TipsButtons from './TipsButtons'
 
 function TipForm() {
-	const [price, setPrice] = useState('')
-	const [tip, setTip] = useState('')
-	const [people, setPeople] = useState('')
-	const [custom, setCustom] = useState('')
 	const [resetCalculator, setResetCalculator] = useState('')
+	const [state, setState] = useState({
+		price: '',
+		tip: '',
+		people: '',
+		custom: '',
+	})
+	const { price, tip, people, custom } = state
 
 	const resetBtn = () => {
-		setPrice('')
-		setTip('')
-		setPeople('')
-		setCustom('Custom')
+		setState({
+			price: '',
+			tip: '',
+			people: '',
+			custom: 'Custom',
+		})
 		if (resetCalculator) {
 			resetCalculator()
 		}
@@ -24,13 +29,22 @@ function TipForm() {
 		<div className='container'>
 			<div className='firstPart'>
 				<label type='number'>Bill</label>
-				<input onChange={e => setPrice(e.target.value)} value={price} className='cash-icon' type='number'></input>
+				<input
+					onChange={e => setState({ ...state, price: e.target.value })}
+					value={price}
+					className='cash-icon'
+					type='number'></input>
 
 				<div>
 					<p className='select-tip'>Select Tip %</p>
 				</div>
 				<div className='tips'>
-					<TipsButtons setTip={setTip} tip={tip} custom={custom} setCustom={setCustom} />
+					<TipsButtons
+						setTip={newTip => setState(prev => ({ ...prev, tip: newTip }))}
+						tip={tip}
+						custom={custom}
+						setCustom={newCustom => setState(prev => ({ ...prev, custom: newCustom }))}
+					/>
 				</div>
 				<div className='labelgroup'>
 					<label type='text'>Number of People</label>
@@ -41,7 +55,7 @@ function TipForm() {
 				<input
 					style={{ borderColor: people !== '0' ? '' : 'red' }}
 					onChange={e => {
-						setPeople(e.target.value)
+						setState({ ...state, people: e.target.value })
 					}}
 					value={people}
 					type='number'
